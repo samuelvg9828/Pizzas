@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/examen.css">
+    <title>Pizzas Samuel</title>
+</head>
+<body>
+        <form>
+            <div class="container">
+                <h1>Pedido De Pizza</h1>
+    
+                <label for="pizza">Selecciona tu pizza</label>
+                <select id="pizza">
+                    <option value="20000">Pequeña</option>
+                    <option value="45000">Mediana</option>
+                    <option value="53000">Grande</option>
+                    <option value="60000">Familiar</option>
+                </select>
+
+                <p id="precio-pizza">Precio de la pizza: $20.000</p>
+    
+                <label for="cantidad">Cantidad</label>
+                <input type="number" id="cantidad" value="1" min="1">
+    
+                <fieldset>
+                    <legend>Ingredientes Extras</legend>
+                    <label id="maiz">
+                        <input type="checkbox" value="6000"> Maíz $6.000
+                    </label>
+                    <label>
+                        <input type="checkbox" value="10000"> Queso $10.000
+                    </label>
+                    <label>
+                        <input type="checkbox" value="13500"> Champiñones $13.500
+                    </label>
+                    <label>
+                        <input type="checkbox" value="15000"> Peperoni $15.000
+                    </label>
+                </fieldset>
+            </div>
+
+            <button id="total">Total</button>
+
+            <h2 id="resultado"></h2>
+
+        </form>
+
+        <script>
+            const pizzaSelect = document.getElementById('pizza');
+            const precioPizza = document.getElementById('precio-pizza');
+    
+            function actualizarPrecio() {
+                const precio = pizzaSelect.value;
+                precioPizza.innerHTML = `Precio de la pizza: $${precio}`;
+            }
+    
+            pizzaSelect.addEventListener('change', actualizarPrecio);
+    
+            
+            document.getElementById('total').addEventListener('click', function(event) {
+                event.preventDefault(); // Evita que el formulario se envíe
+    
+                const pizzaPrecio = parseInt(pizzaSelect.value);
+                const cantidad = parseInt(document.getElementById('cantidad').value) || 0;
+                const extras = Array.from(document.querySelectorAll('input[type="checkbox"]:checked')).reduce((total, extra) => total + parseInt(extra.value), 0);
+    
+                const total = (pizzaPrecio + extras) * cantidad;
+    
+                document.getElementById('resultado').innerHTML = `Total a pagar: $${total}`;
+            });
+    
+            
+            actualizarPrecio();
+        </script>
+
+</body>
+</html>

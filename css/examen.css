@@ -1,0 +1,102 @@
+body
+{
+    font-family:cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(/img/PIZZA.jpg);
+    background-size: cover;  
+    background-position: center;        
+    background-repeat: no-repeat;       
+}
+
+.container
+{
+    width: 400px;
+    background:chocolate;
+    border-radius: 10px; 
+    box-shadow:black;
+    padding: 20px;
+}
+#resultado
+{
+    position: absolute;
+    bottom: 8px;
+}
+.ingredientes
+{
+    color: black;
+}
+h1
+{
+    text-align: center;
+    color:black;
+}
+
+label
+{
+    display: block;
+    margin: 10px ;
+    color:black;
+}
+
+select, input
+{
+    padding: 10px; 
+    margin-bottom: 15px; 
+    border-radius: 5px; 
+}
+
+button
+{
+    padding: 10px 15px;
+    background-color: #28a745; 
+    color: white;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    font-size: 16px; 
+    transition: background-color 0.3s; 
+    position: absolute;
+    bottom: 56px;
+}
+
+button:hover
+{
+    background-color: #218838; 
+}
+
+#resultadoo
+{
+    margin-top: 20px; 
+    padding: 15px;
+    background: #f8f9fa; 
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+}
+ /* Media Query para dispositivos móviles */
+ @media (max-width: 576px)
+ {
+    .container
+    {
+     width: 333px;
+    }
+ 
+     button
+     {
+         width: 100px; 
+     }
+ 
+     #resultado
+     {
+        width: 50px;
+        left:250px ;
+     }
+ }
+
+
+
+
+
